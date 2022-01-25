@@ -1,0 +1,13 @@
+{
+  "name": "Tutorial",
+  "version": "1.0.0",
+  "description": "Solidity Tutorial with Ganache eth emulation and web3 library",
+  "main": "src/index.js",
+  "author": "Artur (Seti) Łabudziński",
+  "license": "MIT",
+  "url": "https://github.com/Setitch/solidity-tutorial",
+  "dependencies": {
+    "ganache": "^7.0.0",
+    "web3": "^1.7.0"
+  }
+}
