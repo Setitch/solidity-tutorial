@@ -31,4 +31,5 @@ Write-Host ("Starting Remixd - local remix directories access point") -Foregroun
 $dir = (Get-ScriptDirectory) + "/solidity"
 Write-Host ("Remixd shared directory: " + ($dir))  -ForegroundColor blue
 Write-Host ("TO CLOSE - JUST CTRL+C") -ForegroundColor red -BackgroundColor white
-remixd -s $dir --remix-ide http://localhost:8080/ 
+Write-Host ("Open Remix IDE")
+open http://localhost:8080/ 
