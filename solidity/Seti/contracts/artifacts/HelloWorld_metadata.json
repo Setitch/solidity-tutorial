@@ -1,0 +1,58 @@
+{
+	"compiler": {
+		"version": "0.8.11+commit.d7f03943"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "greet",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Seti/contracts/1-test-contract.sol": "HelloWorld"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Seti/contracts/1-test-contract.sol": {
+			"keccak256": "0x74db604720a74753a28db38897dd9b3ad8a672499e708ed3e54caa59d7875123",
+			"urls": [
+				"bzz-raw://50934b6da64c6b3b84c2af4b4aca83ed4208c4675112010bdedb3ecde5accf15",
+				"dweb:/ipfs/QmSnz7zMyt4kH8FuvX3cSSe1PsbErU9rAp7Jt3QQfKmoSc"
+			]
+		}
+	},
+	"version": 1
+}
