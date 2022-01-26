@@ -15,10 +15,13 @@ function Get-ScriptDirectory
     }
 }
 
-echo off
+npm i
 
 Write-Host "Downloading Solitidy compiler in docker" -ForegroundColor blue
 docker run ethereum/solc:stable solc --version
+
+Write-Host "Starting Ganache with 10 accounts" -ForegroundColor blue
+docker run --detach --publish 8545:8545 trufflesuite/ganache:rc
 
 Write-Host "Starting Remix"  -ForegroundColor blue
 docker pull remixproject/remix-ide:remix_live
