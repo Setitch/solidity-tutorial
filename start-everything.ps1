@@ -16,6 +16,7 @@ function Get-ScriptDirectory
 }
 
 npm i
+npm install -g @remix-project/remixd
 
 Write-Host "Downloading Solitidy compiler in docker" -ForegroundColor blue
 docker run ethereum/solc:stable solc --version
