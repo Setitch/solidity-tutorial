@@ -1,14 +1,32 @@
 {
   "name": "Tutorial",
   "version": "1.0.0",
-  "description": "Solidity Tutorial with Ganache eth emulation and web3 library",
-  "main": "src/index.js",
+  "description": "Solidity Tutorial with Ganache eth emulation and web3 library. To start write npm --dir <name> start  to start /src/<name>/index.js script",
   "author": "Artur (Seti) Łabudziński",
   "license": "MIT",
   "url": "https://github.com/Setitch/solidity-tutorial",
+  "scripts": {
+    "test": "mocha solidity/**/*.test.js tests/**/*.test.js",
+    "start": "node src/index.js",
+    "deploy": "node src/deploy.js",
+    "compile": "node src/compile.js"
+  },
   "dependencies": {
     "@remix-project/remixd": "^0.5.5",
     "ganache": "^7.0.0",
-    "web3": "^1.7.0"
+    "web3": "^1.7.0",
+    "@truffle/hdwallet-provider": "^2.0.1",
+    "solc": "^0.8.11",
+    "truffle": "^5.4.30"
+  },
+  "devDependencies": {
+    "@types/web3": "^1.2.2",
+    "chai": "^4.3.6",
+    "chai-as-promised": "^7.1.1",
+    "expect": "^27.4.6",
+    "mocha": "^9.2.0"
+  },
+  "engines": {
+    "npm": "please-use-yarn"
   }
 }
