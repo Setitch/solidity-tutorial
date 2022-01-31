@@ -12,6 +12,7 @@
     "compile": "node src/compile.js"
   },
   "dependencies": {
+    "@remix-project/remixd": "^0.5.5",
     "ganache": "^7.0.0",
     "web3": "^1.7.0",
     "@truffle/hdwallet-provider": "^2.0.1",
