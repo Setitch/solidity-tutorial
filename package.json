@@ -7,6 +7,7 @@
   "license": "MIT",
   "url": "https://github.com/Setitch/solidity-tutorial",
   "dependencies": {
+    "@remix-project/remixd": "^0.5.5",
     "ganache": "^7.0.0",
     "web3": "^1.7.0"
   }
