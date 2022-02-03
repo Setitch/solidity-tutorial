@@ -28,8 +28,14 @@ Write-Host "Starting Remix"  -ForegroundColor blue
 docker pull remixproject/remix-ide:remix_live
 docker run -d -p 8080:80 remixproject/remix-ide:remix_live
 
+Write-Host ("Install Truffle - To make life swetter....😉")
+npm install truffle -g
+Write-Host ("Open Remix IDE")
+open http://localhost:8080/
 Write-Host ("Starting Remixd - local remix directories access point") -ForegroundColor blue
-$dir = (Get-ScriptDirectory) + "/solidity"
-Write-Host ("Remixd shared directory: " + ($dir))  -ForegroundColor blue
 Write-Host ("TO CLOSE - JUST CTRL+C") -ForegroundColor red -BackgroundColor white
-remixd -s $dir --remix-ide http://localhost:8080/ 
+$dir = (Get-ScriptDirectory) + "/solidity"
+Write-Host ("Install remixd")
+npm install -g @remix-project/remixd
+Write-Host ("Remixd shared directory: " + ($dir))  -ForegroundColor blue
+remixd -s $dir --remix-ide http://localhost:8080/
