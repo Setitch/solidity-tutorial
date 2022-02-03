@@ -22,12 +22,15 @@ input = {
   settings: {
     outputSelection: {
       '*': {
-        '*': ['*']
+        '*': ['*'],
       },
     },
   },
 };
 
 
-const compiled = solc.compile(JSON.stringify(input, { import: process.solidityFindImports }));
-console.log('compiled', JSON.parse(compiled));
+module.exports = {
+  file: file_udemy1__Inbox,
+  compiled: solc.compile(JSON.stringify(input, { import: process.solidityFindImports })),
+};
+

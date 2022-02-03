@@ -1,0 +1,114 @@
+{
+	"compiler": {
+		"version": "0.8.11+commit.d7f03943"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "NoPlayersError",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "OnlyManagerError",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "enroll",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getEntriesCount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getPlayers",
+				"outputs": [
+					{
+						"internalType": "address[]",
+						"name": "",
+						"type": "address[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "manager",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "pickWinner",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Seti/contracts/udemy-02-contract--Lottery.sol": "Lottery"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Seti/contracts/udemy-02-contract--Lottery.sol": {
+			"keccak256": "0xd7783ecff2be1af57da2fcea447529be2f6cc1c76fb16a02bcb12a4d97a64a89",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://37b295192a43117e089ee7c8e7feb27bda458e4435286007e70a33ca85e86d09",
+				"dweb:/ipfs/QmfCCFAsUktXD6dyK4cuE2JytwbnQgkYrQfaMvbj8wh1e2"
+			]
+		}
+	},
+	"version": 1
+}

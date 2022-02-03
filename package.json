@@ -16,14 +16,16 @@
     "web3": "^1.7.0",
     "@truffle/hdwallet-provider": "^2.0.1",
     "solc": "^0.8.11",
-    "truffle": "^5.4.30"
+    "truffle": "^5.4.30",
+    "dotenv": "^15.0.0"
   },
   "devDependencies": {
     "@types/web3": "^1.2.2",
     "chai": "^4.3.6",
     "chai-as-promised": "^7.1.1",
     "expect": "^27.4.6",
-    "mocha": "^9.2.0"
+    "mocha": "^9.2.0",
+    "mocha-each": "^2.0.1"
   },
   "engines": {
     "npm": "please-use-yarn"

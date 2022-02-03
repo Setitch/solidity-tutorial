@@ -45,6 +45,11 @@ describe(`${__filename}`, async () => {
   it('Should modify message', async () => {
     const set = await deployed.methods.setMessage('new message').send(firstAccountSendingOptions);
     
+    expect(set).toBeDefined();
     expect(await deployed.methods.getMessage().call()).toEqual('new message');
+  });
+  
+  it('Address shown', () => {
+    console.log(deployed.options.address);
   });
 });
