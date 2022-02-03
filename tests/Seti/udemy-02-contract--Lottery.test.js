@@ -16,8 +16,15 @@ describe(`${__filename}`, async () => {
   let firstAccountSendingOptions;
   let deployed;
   
+  /**
+   * IMPORTANT: These tests can be added AFTER we receive information about accounts in Ganache.
+   */
   const addDynamicTests = () => {
     let numOfAccounts = 0;
+    const balances = [];
+    const usedAccounts = [];
+    let sumOfWei = 0;
+    
     forEach([
       [accounts[1], 0.011], [accounts[2], 0.2], [accounts[3], 0.2],
     ]).it(`Should entry into lottery by account %s`, async (acc, val) => {
@@ -26,13 +33,42 @@ describe(`${__filename}`, async () => {
         value: web3.utils.toWei(val.toString(), 'ether'),
       });
       const players = await deployed.methods.getPlayers().call();
-      expect(players).toContain(acc);
+      const balance = await web3.eth.getBalance(acc);
+      
+      balances.push(balance);
+      usedAccounts.push(acc);
+      sumOfWei += val;
       ++numOfAccounts;
+      
+      expect(players).toContain(acc);
+      
     });
     
     it('Should have accounts in contract', async () => {
       const players = await deployed.methods.getPlayers().call();
       expect(players.length).toEqual(numOfAccounts);
+    });
+    
+    it('Should properly call pickWinner', async () => {
+      await deployed.methods.pickWinner().send({
+        from: accounts[0],
+      });
+      
+      let gte = 0;
+      let lte = 0;
+      let ggte = 0;
+      
+      const etherPrice = web3.utils.toBN(web3.utils.toWei(sumOfWei.toString(), 'ether'));
+      const aBitSmallerThanPrice = etherPrice.sub(web3.utils.toBN(web3.utils.toWei('0.001', 'ether')));
+      for (let i = 0; i < usedAccounts.length; ++i) {
+        balances[i] = Math.abs(balances[i] - (await web3.eth.getBalance(usedAccounts[i])));
+        gte += etherPrice.ltn(web3.utils.toBN(balances[i])) ? 1 : 0;
+        lte += aBitSmallerThanPrice.lte(web3.utils.toBN(balances[i])) ? 1 : 0;
+        ggte += aBitSmallerThanPrice.gte(web3.utils.toBN(balances[i])) ? 1 : 0;
+      }
+      expect(gte).toEqual(0); // not any balance should be bigger than the amount donated
+      expect(lte).toEqual(1 ); // one account should have different value because of winning
+      expect(ggte).toEqual(numOfAccounts -1 ); // all apart one account should not be modified but the winning
     });
   };
   
@@ -62,12 +98,32 @@ describe(`${__filename}`, async () => {
   it('Should have creator set', async () => {
     expect(await deployed.methods.manager().call()).toEqual(accounts[0]);
   });
-
-  it('Should fail when enrolling without minimum amount of money', async () => {
+  
+  it('Should fail when non manager tries to call pickWinner', async () => {
     expect.assertions(1);
-    await expect(deployed.methods.enroll().call()).rejects.toThrow(new Error('VM Exception while processing transaction: revert Minimum amount required for entering is 0.01 ether'));
+  
+    await expect(deployed.methods.pickWinner().send({
+      from: accounts[1],
+    })).rejects.toThrow();
   });
   
+  it('Should fail when there is no players', async() => {
+    expect.assertions(1);
   
+    await expect(deployed.methods.pickWinner().send({
+      from: accounts[0],
+    })).rejects.toThrow();
+  });
+  
+  it('Should return empty players as there is no players added yet', async () => {
+    const players = await deployed.methods.getPlayers().call();
+    expect(players.length).toEqual(0);
+  });
+  
+  it('Should fail when enrolling without minimum amount of money', async () => {
+    expect.assertions(1);
+    
+    await expect(deployed.methods.enroll().call()).rejects.toThrow(new Error('VM Exception while processing transaction: revert Minimum amount required for entering is 0.01 ether'));
+  });
  
 });

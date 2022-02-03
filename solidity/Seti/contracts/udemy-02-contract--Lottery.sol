@@ -22,15 +22,16 @@ contract Lottery {
         _;
     }
 
-    error OnlyManagerError();
-    error NoPlayersError();
-
     function enroll () public payable moneyRequired {
         players.push(msg.sender);
     }
 
     function pickWinner () public onlyModerator notEmpty {
-        payable(players[random() % players.length]).transfer(address(this).balance);
+        if (players.length == 1) { // optimization of non needed random
+            payable(players[0]).transfer(address(this).balance);
+        } else {
+            payable(players[random() % players.length]).transfer(address(this).balance);
+        }
         delete players; // = new address[](0);
     }
 

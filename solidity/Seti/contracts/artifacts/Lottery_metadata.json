@@ -12,16 +12,6 @@
 			},
 			{
 				"inputs": [],
-				"name": "NoPlayersError",
-				"type": "error"
-			},
-			{
-				"inputs": [],
-				"name": "OnlyManagerError",
-				"type": "error"
-			},
-			{
-				"inputs": [],
 				"name": "enroll",
 				"outputs": [],
 				"stateMutability": "payable",
@@ -102,11 +92,11 @@
 	},
 	"sources": {
 		"Seti/contracts/udemy-02-contract--Lottery.sol": {
-			"keccak256": "0xd7783ecff2be1af57da2fcea447529be2f6cc1c76fb16a02bcb12a4d97a64a89",
+			"keccak256": "0x79828688004c04d51f1ec84c1fe9519358808b8bf268db709dbcb0cb7eea0bc6",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://37b295192a43117e089ee7c8e7feb27bda458e4435286007e70a33ca85e86d09",
-				"dweb:/ipfs/QmfCCFAsUktXD6dyK4cuE2JytwbnQgkYrQfaMvbj8wh1e2"
+				"bzz-raw://d8d9a03eb99cf0b01b4ce51588afd66ec24211a9515876e3c2e188f4dc2da8f0",
+				"dweb:/ipfs/QmfWWjiC9tZCUFKJbbRcxreFqVykQWWsFdXdB7TzUXZbuT"
 			]
 		}
 	},
